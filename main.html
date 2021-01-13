@@ -13,7 +13,7 @@
 		<h1>Java Test Generator</h1>
 	</header>
 
-	<form id="formMain" onsubmit="saveFile(this['testClassName'].value + '.txt', formInputToTestFile(this))">
+	<form id="formMain" onsubmit="saveFile(this['testClassName'].value + '.java', formInputToTestFile(this))">
 		<div id="divNames">
 			<label for="testTargetName">Class Name</label>
 			<input type="text" id="testTargetName" name="testTargetName" value="Example" required><br>
@@ -29,7 +29,7 @@
 		<div id="divTests">
 			<template id="divTestTemplate">
 				<label for="testNameX">Test Name</label>
-				<input type="text" id="testNameX" name="testNameX"><br>
+				<input type="text" id="testNameX" name="testNameX" value="testX" pattern="[^' ']+"><br>
 				<label for="testTypeX">Type</label>
 				<select id="testTypeX">
 					<option>Output Match</option>

@@ -23,7 +23,7 @@ function testFunctions(testCount, testNames, testArgs, testTargets)
 {
     let result = "";
     for (let i = 0; i < testNames.length; i++) {
-        if (i < testCount) {
+        if (i < testCount && testNames[i].length > 0) {
             result += testToString(testNames[i], testArgs[i], testTargets[i]);
         }
     }
@@ -56,7 +56,7 @@ function captureOutputFunction(testTargetName)
         "            System.setOut(originalOut);\n" +
         "        }\n" +
         "        return convertToUnix(outputStream.toString().trim());\n" +
-        "    }" +
+        "    }\n" +
         "\n";
     return result;
 }
@@ -88,8 +88,7 @@ function functionHeader(testName)
 function argsToCode(inputArgs)
 {
     let result;
-    if (inputArgs.length === 0)
-    {
+    if (inputArgs.length === 0) {
         result = "String[] args = null;\n";
     } else {
         result = "String[] args = {";
@@ -115,7 +114,7 @@ function targetToCode(targetOutput)
             }
         }
     }*/
-    result += targetOutput;
+    result += targetOutput.replaceAll("\n","\\n");
     result += quote + ", captureOutputOfMain(args));\n";
     return result;
 }
