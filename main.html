@@ -1,10 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Java Test Generator</title>
+	<meta charset="UTF-8">
+	<title>Java Test Generator</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="scripts.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+	<header>
+		<h1>Java Test Generator</h1>
+	</header>
+
+
+	<form id="formMain">
+		<div id="divNames">
+			<label for="testTargetName">Class Name</label>
+			<input type="text" id="testTargetName" name="testTargetName" value="Example" required><br>
+			<label for="testClassName">Test Class Name</label>
+			<input type="text" id="testClassName" name="testClassName" value="ExampleTest" required><br>
+		</div>
+
+		<div id="divTestCount">
+			<label for="testCount">Test Count</label>
+			<input type="number" id="testCount" name="testCount" value="1" min="0" max="10" required><br>
+			<input type="submit" value="Update"><br>
+		</div>
+
+		<div id="divTests">
+			<template id="divTestX">
+				<label for="testNameX">Name</label>
+				<input type="text" id="testNameX" name="testNameX" value="testName"><br>
+				<label for="testTypeX">Type</label>
+				<select id="testTypeX">
+					<option>Output Match</option>
+				</select><br>
+
+				<label for="argumentsX">Arguments</label>
+				<input type="text" id="argumentsX" name="argumentsX"><br>
+				<label for="targetX">Target Output</label>
+				<textarea id="targetX" name="targetX"></textarea><br>
+			</template>
+		</div>
+
+		<script>
+			generateTestForms();
+		</script>
+	</form>
 
 </body>
 </html>
