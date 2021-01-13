@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+form {
+  background-color: lightgray;
+}
+
+label {
+
+}
+
+input, select, textarea {
+  margin-top: 10px;
+  padding: 10px;
+  border: 2px solid grey;
+  border-radius: 3px;
+}
+
+input {
+  width: 30%;
+}
+
+select {
+
+}
+
+textarea {
+  width: 80%;
+  resize: none;
+}
+
+input[type=button] {
+  width: 50%
+}
+
+div.testForm {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 100%;
+}
+
+div#divNames {
+  column-count: 2;
+}
+
+@media screen and (max-width: 600px) {
+
+}

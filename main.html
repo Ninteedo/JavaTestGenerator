@@ -5,6 +5,7 @@
 	<title>Java Test Generator</title>
 	<link rel="stylesheet" href="styles.css">
 	<script src="scripts.js"></script>
+	<script src="generator.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -12,7 +13,7 @@
 		<h1>Java Test Generator</h1>
 	</header>
 
-	<form id="formMain">
+	<form id="formMain" onsubmit="saveFile(this['testClassName'].value + '.txt', formInputToTestFile(this))">
 		<div id="divNames">
 			<label for="testTargetName">Class Name</label>
 			<input type="text" id="testTargetName" name="testTargetName" value="Example" required><br>
@@ -23,7 +24,6 @@
 		<div id="divTestCount">
 			<label for="testCount">Test Count</label>
 			<input type="number" id="testCount" name="testCount" onchange="updateTestsVisible()" value="1" min="0" max="10" required><br>
-			<input type="submit" value="Update"><br>
 		</div>
 
 		<div id="divTests">
@@ -34,9 +34,9 @@
 				<select id="testTypeX">
 					<option>Output Match</option>
 				</select><br>
-				<label for="argumentsX">Arguments</label>
+				<label for="argumentsX">Arguments</label><br>
 				<input type="text" id="argumentsX" name="argumentsX"><br>
-				<label for="targetX">Target Output</label>
+				<label for="targetX">Target Output</label><br>
 				<textarea id="targetX" name="targetX"></textarea><br>
 			</template>
 		</div>
@@ -44,6 +44,8 @@
 		<script>
 			generateTestForms();
 		</script>
+
+		<input type="submit" value="Download"><br>
 	</form>
 
 </body>
