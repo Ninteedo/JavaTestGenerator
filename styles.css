@@ -1,21 +1,38 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
 header {
+  background-color: lightgrey;
+  padding: 10px 0;
+  width: 100%;
+}
+
+h1 {
   text-align: center;
+  font-size: 5vh;
 }
 
 form {
-  background-color: lightgray;
+  max-width: 800px;
+  margin: 10px auto auto auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+form * {
+
 }
 
 label {
-
+  min-width: 10%;
 }
 
 input, select, textarea {
   margin-top: 10px;
+  margin-bottom: 15px;
   padding: 10px;
   border: 2px solid grey;
   border-radius: 3px;
@@ -34,22 +51,41 @@ textarea {
   resize: none;
 }
 
-input[type=button] {
-  width: 50%
+input[type=number] {
+  width: auto;
+}
+
+input[type=submit] {
+  width: auto;
+  margin: auto;
+  position: center;
+
 }
 
 div.testForm {
   margin-top: 20px;
-  padding: 10px;
+  padding: 2%;
   border: 1px solid black;
   border-radius: 5px;
-  width: 100%;
+  width: 95%;
+  background-color: #eeeeee;
 }
 
-div#divNames {
+
+div#divNames, div#divCountDownload {
   column-count: 2;
 }
 
-@media screen and (max-width: 600px) {
+div#divNames div, div#divCountDownload div {
+  width: 100%;
+  float: left;
+}
 
+.testDetails div {
+  width: 50%;
+  float: left;
+}
+
+.argument, .target {
+  width: 96%;
 }
