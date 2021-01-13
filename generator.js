@@ -107,14 +107,15 @@ function argsToCode(inputArgs)
 function targetToCode(targetOutput)
 {
     let result = "assertEquals(" + quote;
-    if (targetOutput.length > 0) {
+    /*if (targetOutput.length > 0) {
         for (let i = 0; i < targetOutput.length; i++) {
             result += targetOutput[i];
             if (i < targetOutput.length - 1) {
                 result += "\\n";
             }
         }
-    }
+    }*/
+    result += targetOutput;
     result += quote + ", captureOutputOfMain(args));\n";
     return result;
 }

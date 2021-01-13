@@ -54,7 +54,7 @@ function formInputToTestFile(form) {
 
     for (let i = 1; i <= 10; i++) {
         testNames[i-1] = form["testName" + i].value;
-        testArgs[i-1] = form["arguments" + i].value;
+        testArgs[i-1] = form["arguments" + i].value.split(" ");
         testTargets[i-1] = form["target" + i].value;
     }
 
