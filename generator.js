@@ -22,10 +22,8 @@ function classLine(testClassName)
 function testFunctions(testCount, testNames, testArgs, testTargets)
 {
     let result = "";
-    for (let i = 0; i < testNames.length; i++) {
-        if (i < testCount && testNames[i].length > 0) {
-            result += testToString(testNames[i], testArgs[i], testTargets[i]);
-        }
+    for (let i = 0; i < testCount; i++) {
+        result += testToString(testNames[i], testArgs[i], testTargets[i]);
     }
     return result;
 }
@@ -37,7 +35,7 @@ const imports =
     "import java.io.OutputStream;\n" +
     "import java.io.PrintStream;\n" +
     "\n" +
-    "import org.junit.Test;" +
+    "import org.junit.Test;\n" +
     "\n";
 
 function captureOutputFunction(testTargetName)
@@ -75,6 +73,7 @@ function testToString(testName, inputArgs, targetOutput)
     let result = tab + functionHeader(testName);
     result += tab + tab + argsToCode(inputArgs);
     result += tab + tab + targetToCode(targetOutput);
+    result += tab + tab + "assertEquals(target,captureOutputOfMain(args));\n"
     result += tab + "}" + "\n";
     result += "\n";
     return result;
@@ -105,9 +104,8 @@ function argsToCode(inputArgs)
 
 function targetToCode(targetOutput)
 {
-    let result = "assertEquals(" + quote;
-    result += escapeSpecialChars(targetOutput);
-    result += quote + ", captureOutputOfMain(args));\n";
+    let result = "String target = " + quote;
+    result += escapeSpecialChars(targetOutput) + quote + ";\n";
     return result;
 }
 
