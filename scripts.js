@@ -2,6 +2,7 @@ const maxTests = 10;
 
 function generateTestForms() {
     //clones template called "divTestTemplate" maxTests times, replacing the placeholder X with the test number (i)
+
     let testFormExample = document.getElementById("divTestTemplate");
 
     for (let i = 1; i <= maxTests; i++) {
@@ -22,6 +23,7 @@ function updateTestsVisible() {
     //updates the number of testForms visible when the user changes the testCount
 
     let testCount = document.getElementById("testCount").value;
+
     for (let i = 1; i <= maxTests; i++) {
         let testForm = document.getElementById("testForm" + i);
         if (i <= testCount) {
@@ -30,6 +32,14 @@ function updateTestsVisible() {
             testForm.style.display = "none";
         }
     }
+}
+
+window.onload = function setupTestCountInput() {
+    // sets up dynamic functionality of testCount input
+
+    let testCountElement = document.getElementById("testCount");
+    testCountElement.setAttribute("max",maxTests.toString());
+    testCountElement.addEventListener("change", updateTestsVisible);
 }
 
 // inspired by https://stackoverflow.com/a/42571423
