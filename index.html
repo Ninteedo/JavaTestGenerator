@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Java Test Generator</title>
-	<link rel="stylesheet" href="styles.css">
-	<script src="scripts.js"></script>
-	<script src="generator.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Java Test Generator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js"></script>
+  <script src="generator.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<header>
-		<h1>Java Test Generator</h1>
-	</header>
+<header>
+  <h1>Java Test Generator</h1>
+</header>
 
-	<form id="formMain" onsubmit="return saveFile(this['testClassName'].value + '.java', formInputToTestFile(this))">
-		<div id="divNames">
-			<div>
-				<label for="testTargetName">Class Name</label>
-				<input type="text" id="testTargetName" name="testTargetName" value="Example" required><br>
-			</div>
-
-			<div>
-				<label for="testClassName">Test Class Name</label>
-				<input type="text" id="testClassName" name="testClassName" value="ExampleTest" required><br>
-			</div>
-		</div>
-
-		<div id="divCountDownload">
-      <div>
-			  <label for="testCount">Test Count</label>
-			  <input type="number" id="testCount" name="testCount" onchange="updateTestsVisible()" value="1" min="0" max="10" required><br>
-		  </div>
-      <div>
-        <input type="submit" value="Download">
-      </div>
+<form id="formMain" onsubmit="return saveFile(this['testClassName'].value + '.java', formInputToTestFile(this))">
+  <div id="divNames">
+    <div>
+      <label for="testTargetName">Class Name</label>
+      <input type="text" id="testTargetName" name="testTargetName" value="Example" required><br>
     </div>
 
-		<div id="divTests">
-			<template id="divTestTemplate">
-        <div class="testDetails">
-          <div>
-            <label for="testNameX">Test Name</label>
-            <input type="text" id="testNameX" name="testNameX" value="testX" pattern="[A-z0-9_$]+" required><br>
-          </div>
+    <div>
+      <label for="testClassName">Test Class Name</label>
+      <input type="text" id="testClassName" name="testClassName" value="ExampleTest" required><br>
+    </div>
+  </div>
 
-          <div>
-            <label for="testTypeX">Type</label>
-            <select id="testTypeX">
-              <option>Output Match</option>
-            </select><br>
-          </div>
+  <div id="divCountDownload">
+    <div>
+      <label for="testCount">Test Count</label>
+      <input type="number" id="testCount" name="testCount" onchange="updateTestsVisible()" value="1" min="0" max="10" required><br>
+    </div>
+    <div>
+      <input type="submit" value="Download">
+    </div>
+  </div>
+
+  <div id="divTests">
+    <template id="divTestTemplate">
+      <div class="testDetails">
+        <div>
+          <label for="testNameX">Test Name</label>
+          <input type="text" id="testNameX" name="testNameX" value="testX" pattern="[A-z0-9_$]+" required><br>
         </div>
 
-				<label for="argumentsX">Arguments</label><br>
-				<input type="text" id="argumentsX" class="argument" name="argumentsX"><br>
+        <div>
+          <label for="testTypeX">Type</label>
+          <select id="testTypeX">
+            <option>Output Match</option>
+          </select><br>
+        </div>
+      </div>
 
-				<label for="targetX">Target Output</label><br>
-				<textarea id="targetX" class="target" name="targetX"></textarea><br>
-			</template>
-		</div>
+      <label for="argumentsX">Arguments</label><br>
+      <input type="text" id="argumentsX" class="argument" name="argumentsX"><br>
 
-		<script>
-			generateTestForms();
-		</script>
+      <label for="targetX">Target Output</label><br>
+      <textarea id="targetX" class="target" name="targetX"></textarea><br>
+    </template>
+  </div>
 
-		<input type="submit" id="bottomButton" value="Download"><br>
-	</form>
+  <script>
+      generateTestForms();
+  </script>
+
+  <input type="submit" id="bottomButton" value="Download"><br>
+</form>
 
 </body>
 </html>
