@@ -106,15 +106,15 @@ function argsToCode(inputArgs)
 function targetToCode(targetOutput)
 {
     let result = "assertEquals(" + quote;
-    /*if (targetOutput.length > 0) {
-        for (let i = 0; i < targetOutput.length; i++) {
-            result += targetOutput[i];
-            if (i < targetOutput.length - 1) {
-                result += "\\n";
-            }
-        }
-    }*/
-    result += targetOutput.replaceAll("\n","\\n");
+    result += escapeSpecialChars(targetOutput);
     result += quote + ", captureOutputOfMain(args));\n";
+    return result;
+}
+
+function escapeSpecialChars(input) {
+    let result = input;
+    result = result.replaceAll("\\","\\\\"); // replace all single backslashes with an escaped backslash
+    result = result.replaceAll("\"","\\\""); // replace all quotes with an escaped quote
+    result = result.replaceAll("\n","\\n"); // replace all new lines with a new line char
     return result;
 }
