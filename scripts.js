@@ -39,11 +39,12 @@ function saveFile(filename, text) {
     downloadBtn.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
     downloadBtn.setAttribute("download", filename);
     downloadBtn.style.display = "none";
+
     document.body.appendChild(downloadBtn);
-
     downloadBtn.click();
-
     document.body.removeChild(downloadBtn);
+
+    return false; // returns false so submitting form will not cause page to reload
 }
 
 function formInputToTestFile(form) {
