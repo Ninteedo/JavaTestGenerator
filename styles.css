@@ -56,15 +56,19 @@ input[type=number] {
 }
 
 input[type=submit] {
-  width: auto;
-  margin: auto;
+  width: 30%;
+  margin: 0 auto;
   position: center;
+  display: block;
+}
 
+#bottomButton {
+  margin-top: 20px;
 }
 
 div.testForm {
-  margin-top: 20px;
-  padding: 2%;
+  margin-top: 0;
+  padding: 1%;
   border: 1px solid black;
   border-radius: 5px;
   width: 95%;
