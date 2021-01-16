@@ -39,7 +39,7 @@ input, select, textarea {
 }
 
 input {
-  width: 30%;
+  width: 60%;
 }
 
 select {
@@ -91,5 +91,9 @@ div#divNames div, div#divCountDownload div {
 }
 
 .argument, .target {
-  width: 96%;
+  width: 97%;
+}
+
+.testType {
+  visibility: hidden;
 }
