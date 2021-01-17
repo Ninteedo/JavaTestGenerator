@@ -56,18 +56,3 @@ function saveFile(filename, text) {
 
     return false; // returns false so submitting form will not cause page to reload
 }
-
-function formInputToTestFile(form) {
-    let testTargetName = form["testTargetName"].value;
-    let testClassName = form["testClassName"].value;
-    let testCount = form["testCount"].value;
-    let testNames = [], testArgs = [], testTargets = [];
-
-    for (let i = 1; i <= 10; i++) {
-        testNames[i-1] = form["testName" + i].value;
-        testArgs[i-1] = form["arguments" + i].value.split(" ");
-        testTargets[i-1] = form["target" + i].value;
-    }
-
-    return (createTestFile(testTargetName, testClassName, testCount, testNames, testArgs, testTargets));
-}
